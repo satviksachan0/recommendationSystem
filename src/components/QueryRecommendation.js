@@ -1,24 +1,19 @@
+// src/components/QueryRecommendation.js
 import React from 'react';
+import './QueryRecommendation.css';
 
-function QueryRecommendation({ queries }) {
-  // You can add logic here to filter or sort queries if needed
-  const recommendedQueries = queries.filter(query => query.isRecommended); // Example filter for recommended queries
-  
+function QueryRecommendation({ recommendations }) {
   return (
-    <div>
+    <div className="recommendations-container">
       <h2>Recommended Queries</h2>
-      {recommendedQueries.length > 0 ? (
-        <ul>
-          {recommendedQueries.map((query, index) => (
-            <li key={index}>
-              <h3>{query.title}</h3>
-              <p>{query.description}</p>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No recommendations available at the moment.</p>
-      )}
+      <ul>
+        {recommendations.map((query, index) => (
+          <li key={index}>
+            <h3>{query.title}</h3>
+            <p>{query.description}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

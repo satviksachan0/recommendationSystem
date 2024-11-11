@@ -1,16 +1,14 @@
+// src/App.js
 import React, { useState, useEffect } from 'react';
 import QueryForm from './components/QueryForm';
 import QueryRecommendation from './components/QueryRecommendation.js';
 import { querySequences } from './data/queries';
 import { buildMarkovChain, predictNextQuery } from './markov';
 import { getSimilarQueries } from './collaborativeFiltering';
-// App.js
-
 
 function App() {
   const [recommendations, setRecommendations] = useState([]);
   const [markovChain, setMarkovChain] = useState({});
-  
 
   // Build Markov Chain on mount
   useEffect(() => {
@@ -36,7 +34,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>VIT Vellore Query Recommendation System</h1>
+      <center><h1>VIT Vellore Query Recommendation System</h1></center>
       <QueryForm onSubmit={handleQuerySubmit} />
       {recommendations.length > 0 && (
         <QueryRecommendation recommendations={recommendations} />
